@@ -36,7 +36,7 @@ module EventAPI
         def rabbitmq_credentials
           { host:     ENV.fetch("RABBITMQ_HOST"),
             port:     ENV.fetch("RABBITMQ_PORT"),
-            username: ENV.fetch("RABBITMQ_USERNAME"),
+            username: ENV.fetch("RABBITMQ_USER"),
             password: ENV.fetch("RABBITMQ_PASSWORD") }
         end
 

@@ -23,11 +23,11 @@ module PlugEventAPIMiddlewares
     end
 
     config.after_initialize do
-      require_relative "event_api/middlewares/plug/generate_jwt"
+      # require_relative "event_api/middlewares/plug/generate_jwt"
       require_relative "event_api/middlewares/plug/publish_to_rabbitmq"
       EventAPI.middlewares = [
         EventAPI::Middlewares::IncludeEventMetadata.new,
-        EventAPI::Middlewares::Plug::GenerateJWT.new,
+        # EventAPI::Middlewares::Plug::GenerateJWT.new,
         EventAPI::Middlewares::PrintToScreen.new,
         EventAPI::Middlewares::Plug::PublishToRabbitMQ.new
       ]
