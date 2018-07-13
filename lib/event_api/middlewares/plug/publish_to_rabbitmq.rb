@@ -34,14 +34,10 @@ module EventAPI
         memoize :bunny_exchange
 
         def rabbitmq_credentials
-          if ENV["EVENT_API_RABBITMQ_URL"].present?
-            ENV["EVENT_API_RABBITMQ_URL"]
-          else
-            { host:     ENV.fetch("EVENT_API_RABBITMQ_HOST"),
-              port:     ENV.fetch("EVENT_API_RABBITMQ_PORT"),
-              username: ENV.fetch("EVENT_API_RABBITMQ_USERNAME"),
-              password: ENV.fetch("EVENT_API_RABBITMQ_PASSWORD") }
-          end
+          { host:     ENV.fetch("RABBITMQ_HOST"),
+            port:     ENV.fetch("RABBITMQ_PORT"),
+            username: ENV.fetch("RABBITMQ_USERNAME"),
+            password: ENV.fetch("RABBITMQ_PASSWORD") }
         end
 
         def exchange_name(event_name)
